@@ -1,6 +1,6 @@
 # flutter_list
 
-A new Flutter application.
+A new Flutter application to display list widget.
 
 ## Getting Started
 
