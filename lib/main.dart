@@ -4,7 +4,44 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  List<int> items = new List();
+
+  @override
+  void initState() {
+    for(int i = 0; i<25; i++){
+      items.add(i);
+    }
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: "List Widget with Array",
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("List Widget With Array"),
+        ),
+        body: new ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (BuildContext buildContext, int i){
+          return new ListTile(
+            title: new Text("List Item ${i+1}"),
+            trailing: new Icon(Icons.arrow_right),
+          );
+        }),
+      ),
+    );
+  }
+}
+
+
+/*class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -32,4 +69,4 @@ class MyApp extends StatelessWidget {
       )
     );
   }
-}
+}*/
